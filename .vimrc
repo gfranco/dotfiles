@@ -1,107 +1,80 @@
-set nocompatible        " не совместимость с vi
+" File: .vimrc
+" Author: Georgiy Mostolovitsa (gfranco)
+" Description: 
+" Last Modified: 02.04.2011
 
-language ru_RU.UTF-8
-set langmenu=ru_RU.UTF-8
-set helplang=ru
+
+" Common
+set nocompatible
+set autoread
+
+set backup
+set backupdir=/tmp
+set directory=/tmp
+
+
+" Editor
+set nowrap
+set undolevels=100
+set backspace=indent,eol,start whichwrap+=<,>,[,]
+
+set softtabstop=4
+set shiftwidth=4
+set tabstop=4
+set expandtab
+set smarttab
+
+set ignorecase
+set hlsearch
+set incsearch
+set showmatch
+set smartcase
+
+set autoindent
+set smartindent
+
+set pastetoggle=<C-v>
+
+set nofoldenable
+
+
+" UI
+set number
+set foldcolumn=0
+set showtabline=0
 
 set laststatus=2
 set statusline=%t%M%R\ %P
 
-" файлы
-set autoread            " Set to auto read when a file is changed from the outside
-
-" редактор
-set nowrap              " не разрывать строку
-set number              " показывать номер строки
-set foldcolumn=1        " показываем колонку с плюсиками для фолдинга
-set showtabline=0
-set undolevels=100      " 
-set backspace=indent,eol,start whichwrap+=<,>,[,]
-
-" Отступы
-
-function! Tabstyle()
-    set softtabstop=4
-    set shiftwidth=4
-    set tabstop=4
-    set expandtab
-    set smarttab
-endfunction
-
-call Tabstyle()
-
-function! Search()
-    set ignorecase          " игнорировать прописные / строчные символы при поиске
-    set hlsearch            " при поиске подсвечивать найденные совпадения
-    set incsearch           " при поиске перескакивать на найденный текст в процессе набора
-    set showmatch           " подсвечивать совпадающие скобки
-    set smartcase           " игнорировать регистр ри поиске строчными символами
-endfunction
-
-call Search()
-
-function! Indenting()
-    set autoindent          " Automatically set the indent of a new line (local to buffer)
-    set smartindent         " smartindent (local to buffer)
-endfunction
-
-call Indenting()
-
-function! Backup()
-    set backup
-    set backupdir=/tmp
-    set directory=/tmp
-endfunction
-
-call Backup()
-
-" Фолдинг
-set foldmethod=indent
-set foldnestmax=3
-set nofoldenable
-
-set scrolljump=7        " количество строк до конца экрана когда начинается скролирование
-
-set hidden              " работа с несколькими файлами без сохранения
+set scrolljump=7
 
 set novisualbell        " выключаем бибиканье и мигание
 set t_vb=   
 
-set fo+=cr              " Fix <Enter> for comment
 
-" Подсветка синтаксиса
-syntax on               " включаем
-colorscheme bubblegum   " название используемой темы
-set t_Co=256            " наш терминал поддерживает 256 цветов
+" Keyboard
+map <C-w>v :vertical wincmd f<CR>
+imap <C-_> <C-X>/
 
 
-" Включаем распознование типов файлов и типо-специфичные плагины
-filetype on
-filetype plugin on
-filetype indent on
-
-" Кодировки
+" Encoding
 set encoding=utf-8
 set termencoding=utf-8
 set fileencodings=utf-8,cp1251,koi8-r
 
-" Клавиатура
-"nmap <Space> <PageDown>
-" C-y - удаление текущей строки
-"nmap <C-y> dd
-"imap <C-y> <esc>ddi
 
-map <C-w>v :vertical wincmd f<CR>
+" Pathogen
+filetype off
 
-imap <C-_> <C-X>/
+call pathogen#helptags()
+call pathogen#runtime_append_all_bundles()
 
-set pastetoggle=<C-v>
-
-" C-d - дублирование текущей строки
-"imap <C-d> <esc>yypi
+filetype plugin indent on
 
 
-"dont load csapprox if we no gui support - silences an annoying warning
-"if !has("gui")
-    "let g:CSApprox_loaded = 1
-"endif
+" Colorscheme
+syntax on
+set background=light
+colorscheme solarized
+
+
