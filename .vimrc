@@ -64,7 +64,7 @@ set fileencodings=utf-8,cp1251,koi8-r
 
 
 " Pathogen
-filetype on             " Fix for $? == 1
+filetype on             " fix for $? == 1
 filetype off
 
 call pathogen#helptags()
@@ -75,7 +75,8 @@ filetype plugin indent on
 
 " Colorscheme
 syntax on
+
+set t_Co=16
 set background=light
+
 colorscheme solarized
-
-
