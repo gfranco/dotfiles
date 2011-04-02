@@ -64,6 +64,7 @@ set fileencodings=utf-8,cp1251,koi8-r
 
 
 " Pathogen
+filetype on             " Fix for $? == 1
 filetype off
 
 call pathogen#helptags()
