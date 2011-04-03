@@ -55,6 +55,7 @@ set t_vb=
 " Keyboard
 map <C-w>v :vertical wincmd f<CR>
 imap <C-_> <C-X>/
+let mapleader=","
 
 
 " Encoding
@@ -80,3 +81,6 @@ set t_Co=16
 set background=light
 
 colorscheme solarized
+
+" Plugins
+let g:indent_guides_guide_size=1
