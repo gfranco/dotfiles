@@ -34,3 +34,6 @@
 [submodule ".vim/bundle/indent-guides"]
 	path = .vim/bundle/indent-guides
 	url = https://github.com/nathanaelkane/vim-indent-guides.git
+[submodule ".vim/bundle/trailing-whitespace"]
+	path = .vim/bundle/trailing-whitespace
+	url = https://github.com/bronson/vim-trailing-whitespace.git
