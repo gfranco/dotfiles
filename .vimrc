@@ -84,3 +84,6 @@ colorscheme solarized
 
 " Plugins
 let g:indent_guides_guide_size=1
+
+au BufNewFile,BufRead *.bemhtml set filetype=javascript
+au BufNewFile,BufRead *.scss set filetype=css
