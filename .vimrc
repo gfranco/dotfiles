@@ -1,6 +1,5 @@
 " File: .vimrc
 " Author: Georgiy Mostolovitsa (gfranco)
-" Description: 
 " Last Modified: 02.04.2011
 
 
@@ -64,12 +63,31 @@ set termencoding=utf-8
 set fileencodings=utf-8,cp1251,koi8-r
 
 
-" Pathogen
+" Vundle
 filetype on             " fix for $? == 1
 filetype off
 
-call pathogen#helptags()
-call pathogen#runtime_append_all_bundles()
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+" let Vundle manage Vundle
+Bundle 'gmarik/vundle'
+
+" My Bundles
+Bundle 'tpope/vim-ragtag'
+Bundle 'tpope/vim-haml.git'
+Bundle 'tpope/vim-markdown.git'
+Bundle 'tpope/vim-git.git'
+Bundle 'msanders/snipmate.vim'
+Bundle 'edsono/vim-matchit'
+Bundle 'altercation/vim-colors-solarized'
+Bundle 'othree/html5.vim'
+Bundle 'mileszs/ack.vim.git'
+Bundle 'ddollar/nerdcommenter.git'
+Bundle 'scrooloose/syntastic.git'
+Bundle 'nathanaelkane/vim-indent-guides.git'
+Bundle 'bronson/vim-trailing-whitespace.git'
+Bundle 'digitaltoad/vim-jade'
 
 filetype plugin indent on
 
