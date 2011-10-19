@@ -36,6 +36,8 @@ set pastetoggle=<C-v>
 
 set nofoldenable
 
+set splitright
+set splitbelow
 
 " UI
 set number
@@ -49,6 +51,7 @@ set scrolljump=7
 
 set novisualbell        " выключаем бибиканье и мигание
 set t_vb=   
+set wildmenu
 
 
 " Keyboard
@@ -62,46 +65,43 @@ set encoding=utf-8
 set termencoding=utf-8
 set fileencodings=utf-8,cp1251,koi8-r
 
-
-" Vundle
-filetype on             " fix for $? == 1
-filetype off
-
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
-
-" let Vundle manage Vundle
-Bundle 'gmarik/vundle'
-
-" My Bundles
-Bundle 'tpope/vim-ragtag'
-Bundle 'tpope/vim-haml.git'
-Bundle 'tpope/vim-markdown.git'
-Bundle 'tpope/vim-git.git'
-Bundle 'msanders/snipmate.vim'
-Bundle 'edsono/vim-matchit'
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'othree/html5.vim'
-Bundle 'mileszs/ack.vim.git'
-Bundle 'ddollar/nerdcommenter.git'
-Bundle 'scrooloose/syntastic.git'
-Bundle 'nathanaelkane/vim-indent-guides.git'
-Bundle 'bronson/vim-trailing-whitespace.git'
-Bundle 'digitaltoad/vim-jade'
+so ~/.vim/vundle.module.vim
+so ~/.vim/colors.module.vim
 
 filetype plugin indent on
-
-
-" Colorscheme
-syntax on
-
-set t_Co=16
-set background=light
-
-colorscheme solarized
 
 " Plugins
 let g:indent_guides_guide_size=1
 
+let g:tagbar_ctags_bin="/Users/gfranco/.local/bin/ctags"
+
 au BufNewFile,BufRead *.bemhtml set filetype=javascript
 au BufNewFile,BufRead *.scss set filetype=css
+
+" Remember last location in file
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
+    \| exe "normal g'\"" | endif
+endif
+
+
+" DEMO!!11
+
+" F7 opens documentation for function under cursor
+function! BrowseDoc()
+    if b:current_syntax == "php"
+        ! open http://ch2.php.net/manual-lookup.php?pattern=<cword>
+    elseif b:current_syntax == "perl"
+        ! open http://perldoc.perl.org/search.html?q=<cword>
+    elseif b:current_syntax == "cpp"
+          let cname = tolower(cword);
+        ! open file:///opt/qt-4.3.4/doc/html/<cname>
+    else
+        echo "Hello"
+    endif
+endfunction
+map <F7> :call BrowseDoc()
+
+
+" Don't use the terminal's horrible secondary screen
+" set t_ti= t_te=
