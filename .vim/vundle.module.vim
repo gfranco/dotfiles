@@ -57,6 +57,10 @@ Bundle 'vim-scripts/Gist.vim'
 "   Homepage: http://projects.mikewest.org/vimroom/
 Bundle 'mikewest/vimroom'
 
+" The ultimate vim statusline utility
+"   Homepage: https://github.com/Lokaltog/vim-powerline
+Bundle 'Lokaltog/vim-powerline'
+
 
 
 " See later
