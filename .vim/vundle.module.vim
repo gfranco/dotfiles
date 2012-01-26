@@ -61,6 +61,9 @@ Bundle 'mikewest/vimroom'
 "   Homepage: https://github.com/Lokaltog/vim-powerline
 Bundle 'Lokaltog/vim-powerline'
 
+Bundle 'Lokaltog/vim-distinguished'
+
+Bundle 'viewdoc'
 
 
 " See later

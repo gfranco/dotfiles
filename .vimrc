@@ -102,6 +102,8 @@ function! BrowseDoc()
 endfunction
 map <F7> :call BrowseDoc()
 
+let g:Powerline_symbols="fancy"
+let g:Powerline_cache_file=$HOME . "/.vim/Powerline.cache"
 
 " Don't use the terminal's horrible secondary screen
 " set t_ti= t_te=
